@@ -1,0 +1,28 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Todo API",
+  "main": "index.js",
+  "scripts": {
+    "test": "Create Task Remove and Manage Teams"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/Sammysoft/todo-api"
+  },
+  "keywords": [
+    "Task",
+    "Manage",
+    "Teams",
+    "Boards",
+    "Deadline"
+  ],
+  "author": "Samuel Dare-Owonibi",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  }
+}
