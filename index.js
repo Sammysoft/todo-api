@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import { db } from "./config/db.js";
 import cors from "cors";
+import userRoute from "./Routes/users.js";
+import teamRoute from "./Routes/team.js";
 
 const server = express();
 dotenv.config();
@@ -29,3 +31,6 @@ server.listen(PORT, () => {
   db._init();
   console.log(`Server running on port ${PORT}`);
 });
+
+server.use("/api", userRoute);
+server.use("/api", teamRoute);

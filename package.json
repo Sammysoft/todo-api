@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "Create Task Remove and Manage Teams",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
