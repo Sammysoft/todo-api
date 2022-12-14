@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Todo API",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "Create Task Remove and Manage Teams"
+    "test": "Create Task Remove and Manage Teams",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "dependencies": {
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.0"
   }
