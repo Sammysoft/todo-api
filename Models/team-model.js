@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const teamSchema = new mongoose.Schema(
   {
-    board_name: { type: String },
+    board: { type: String },
     task: { type: String },
     users: [String],
     startDate: { type: String },
