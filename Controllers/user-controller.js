@@ -29,4 +29,15 @@ export const UserController = {
       }
     }
   },
+
+  _getUsers: async(req,res,next)=>{
+    try {
+        const users = await User.find()
+        res.status(200).json({data: users})
+    } catch (error) {
+      res.status(400).json({
+        data: "Internal Server Error, please contact support! " + error,
+      });
+    }
+  }
 };

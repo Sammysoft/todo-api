@@ -4,7 +4,7 @@ export const TeamController = {
   _createTeam: async (req, res, next) => {
     const { board, task, startDate, endDate } = req.body;
     try {
-      const existingTeam = await Team.findOne({ board_name: board });
+      const existingTeam = await Team.findOne({ board: board });
       if (existingTeam) {
         res.status(400).json({ data: "Team already exists" });
       } else {
@@ -27,13 +27,18 @@ export const TeamController = {
 
   _updateTeamStatus: async (req, res, next) => {
     try {
-      const team = Team.findById({ _id: req.params.id });
-      team.status = "Done";
+      const team = await Team.findById({ _id: req.params.id });
+      if(team.status === "Pending"){
+        team.status = "Completed"
+      }else{
+        team.status = team.status
+      }
       team.save();
+      res.status(200).json({data: "Updated status succesfully."})
     } catch (error) {
       res
         .status(400)
-        .json({ data: "Internal Server Error, please contact support" });
+        .json({ data: "Internal Server Error, please contact support" + error });
     }
   },
 
@@ -52,7 +57,7 @@ export const TeamController = {
   _addUserToTeam: async (req, res, next) => {
     try {
       const { board, users, task } = req.body;
-      const team = await Team.findOne({ board_name: board, task: task });
+      const team = await Team.findOne({ board: board, task: task });
       if (team !== null) {
         let found = users.map((user) => {
           return team.users.includes(user) ? null : user;

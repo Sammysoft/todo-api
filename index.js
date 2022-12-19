@@ -5,6 +5,8 @@ import { db } from "./config/db.js";
 import cors from "cors";
 import userRoute from "./Routes/users.js";
 import teamRoute from "./Routes/team.js";
+import boardRoute from "./Routes/board.js";
+import { Update } from "./middlewares/autoUpdateTaskStatus.js";
 
 const server = express();
 dotenv.config();
@@ -32,5 +34,10 @@ server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-server.use("/api", userRoute);
-server.use("/api", teamRoute);
+server.use("/api", userRoute, (req, res, next) => {
+  Update(req, res, next);
+});
+server.use("/api", teamRoute, (req, res, next) => {
+  Update(req, res, next);
+});
+server.use("/api", boardRoute);

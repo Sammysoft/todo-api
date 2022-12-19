@@ -7,6 +7,6 @@ const boardSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Board = mongoose.Model("Board", boardSchema);
+const Board = mongoose.model("Board", boardSchema);
 
 export default Board;
